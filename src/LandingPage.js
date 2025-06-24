@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { isAuthenticated } from './utils/auth';
 import { motion } from 'framer-motion';
-import heroImage from './assets/jackal-hero.jpg'; // Ensure this path is valid
+import heroImage from './assets/jackal-hero.jpg'; 
 
 function LandingPage() {
   const navigate = useNavigate();
