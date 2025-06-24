@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
+import './wallets';
 
 import { SuiClientProvider, createNetworkConfig, WalletProvider } from '@mysten/dapp-kit';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
