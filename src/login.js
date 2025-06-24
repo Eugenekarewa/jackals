@@ -15,6 +15,7 @@ function Login() {
 
   const googleWallet = walletsByProvider.get('google');
   const facebookWallet = walletsByProvider.get('facebook');
+  const twitchWallet = walletsByProvider.get('twitch');
 
   if (currentAccount) {
     return (
@@ -29,7 +30,7 @@ function Login() {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-zinc-900 via-black to-zinc-800 flex items-center justify-center text-white px-4">
       <motion.div
-        className="relative z-10 flex flex-col items-center text-center max-w-md"
+        className="relative z-10 flex flex-col items-center text-center max-w-md w-full"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -53,14 +54,25 @@ function Login() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => connect({ wallet: facebookWallet })}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full w-full transition"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 mb-4 rounded-full w-full transition"
           >
             Sign in with Facebook
           </motion.button>
         )}
 
-        {!googleWallet && !facebookWallet && (
-          <p className="text-red-400 mt-4">No Enoki-compatible provider found.</p>
+        {twitchWallet && (
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => connect({ wallet: twitchWallet })}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full w-full transition"
+          >
+            Sign in with Twitch
+          </motion.button>
+        )}
+
+        {!googleWallet && !facebookWallet && !twitchWallet && (
+          <p className="text-red-400 mt-4">No Enoki-compatible providers available. Please check your setup.</p>
         )}
       </motion.div>
     </div>
