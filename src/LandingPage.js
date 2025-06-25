@@ -8,9 +8,12 @@ function LandingPage() {
   const navigate = useNavigate();
 
   const handleViewClick = () => {
+    console.log('View Gallery button clicked');
     if (isAuthenticated()) {
+      console.log('User is authenticated, navigating to gallery');
       navigate('/gallery');
     } else {
+      console.log('User not authenticated, navigating to login');
       navigate('/login');
     }
   };
